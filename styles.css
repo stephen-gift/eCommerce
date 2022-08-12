@@ -1,0 +1,541 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h1,h3,a{
+    color: hsl(220, 13%, 13%);
+}
+h1{
+    font-size: 40px;
+}
+small{
+    color: hsl(220, 14%, 75%);
+}
+body{
+    background-color: hsl(0, 0%, 100%);
+    font-family: 'Kumbh Sans', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    cursor: default;
+    position: relative;
+}
+
+
+/* LIGHTBOX */
+.lightBoxContainer{
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsl(0, 0%, 0%);
+    opacity: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.lightBoxContainer .close{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+
+    z-index: 4;
+}
+.bigImgAndNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: max-content;
+}
+.bigImgAndNav .bigImg{
+    width: 50%;
+    border-radius: 5px;
+    cursor: default;position: relative;
+}
+.bigImgAndNav .next{
+    display: block;
+    position: absolute;
+    right: 22.5%;
+    background-color: #fff;
+    height:40px;
+    width:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;}
+.lightBoxContainer .previous{
+    display: block;
+    position: absolute;
+    left: 22.5%;
+    background-color: #fff;
+    height:40px;
+    width:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+
+
+.wholeContainer{
+    width: 90%;
+    cursor: default;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid black;
+    cursor: default;
+}
+.logoNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.navBars{
+    display: none;
+    color: hsl(220, 13%, 13%);
+    position: relative;
+}
+.navBars:hover{
+    color: hsl(26, 100%, 55%);
+    transform: scale(1.5);
+}
+.navSideBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 2;;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    visibility: hidden;
+}
+.close{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+.sibeBarNav{
+    display: flex;
+    justify-content: flex-start;
+    font-weight: 780;
+    align-items: center;
+}
+.sibeBarNav ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+.logo{
+    max-width: 100%;
+}
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+.profileCart{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+.cart{
+    color: hsl(220, 13%, 13%);
+    position: relative;
+    padding: 5px;
+}
+.cartNoti{
+    position: relative;
+}
+.notification{
+    position: absolute;
+    background-color: hsl(26, 100%, 55%);
+    width: 15px;
+    height: 15px;
+    font-size:13px;
+    font-weight: bolder;
+    top: -10px;
+    right:-10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    color: hsl(0, 0%, 100%);
+}
+
+.cart:hover{
+    color: hsl(26, 100%, 55%);
+    transform: scale(1.1);
+}
+.profileImg{
+    max-width: 40px;
+}
+.cartBasket{
+    position: absolute;
+    top: 65px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid hsl(220, 14%, 75%);
+    width: 300px;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 100%);
+    z-index: 1000000;
+    box-shadow: -5px 5px 8px hsl(220, 14%, 75%);
+    visibility: hidden;
+
+}
+.basketHeader{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.basketItems{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+
+
+
+
+/* section */
+.wholeSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: default;
+}
+section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    padding: 30px;
+    cursor: default;
+}
+.leftSection{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+.bigImg{
+    width: 63%;
+    border-radius: 5px;
+    cursor: default;
+}
+.next{
+    display: none;
+}
+.previous{
+    display: none;
+}
+.allImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+}
+.smallImg{
+    width: 15%;
+    border-radius: 5px;
+}
+.rightSection{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: default;
+}
+.firstP small{
+    text-transform: uppercase;
+    color: hsl(26, 100%, 55%);
+    font-weight: 600;
+}
+.longInfo{
+    color: hsl(220, 14%, 75%);
+    line-height: 35px;
+}
+.price{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center; 
+    gap: 10px;
+}
+.pricePercent{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.percent{
+    background-color: hsl(223, 64%, 98%);
+    color: hsl(26, 100%, 55%);
+    border-radius: 5px;
+    padding: 3px 5px;
+    border: none;
+}
+.percent:hover{
+    color: hsl(223, 64%, 98%);
+    background-color: hsl(26, 100%, 55%);
+}
+.strikeThrough{
+    text-decoration: line-through;
+}
+.quantityCart{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.quantity{
+    align-self: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+    background-color: hsl(223, 64%, 98%);
+    height: 40px;
+    border-radius: 5px;
+    color: hsl(26, 100%, 55%);
+}
+.quantity:hover{
+    background-color: hsl(26, 100%, 55%);
+    color: hsl(0, 0%, 100%);
+}
+.quantity input{
+    color: black;
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: none;
+    background: none;
+    font-size: 15px;
+}
+.addToCart{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    gap: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: hsl(26, 100%, 55%);
+    color: white;
+}
+.addToCart:hover{
+    background-color: hsl(223, 64%, 98%);
+    color: hsl(26, 100%, 55%);
+}
+.addCart{
+    filter: invert();
+}
+.fa-shopping-cart{
+    font-size: 20px;
+}
+
+
+
+
+
+@media screen and (max-width: 900px) {
+    .lightBoxContainer{
+        visibility: hidden;
+    }
+    .navBars{
+        display: block;
+    }
+    .navSideBar{
+        visibility: hidden;
+    }
+    nav{
+        display: none;
+    }
+    .cartBasket{
+        visibility: hidden;
+        width: 300px;
+        box-shadow: -3px 3px 30px  hsl(220, 14%, 75%);
+    }
+    .wholeSection{
+        width: 100%;
+        padding: 0;
+        padding-bottom: 100px;
+    }
+    section{
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 0;
+    }
+    .leftSection{
+        width: 100%;   
+    }
+    .bigImg{
+        width:100%;
+        border-radius: 0px;
+        position: relative;
+    }
+    .next{
+        display: block;
+        position: absolute;
+        right: 70px;
+        background-color: #fff;
+        height:40px;
+        width:40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+    .previous{
+        display: block;
+        position: absolute;
+        left: 70px;
+        background-color: #fff;
+        height:40px;
+        width:40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+    .next:hover{
+        background-color: hsl(26, 100%, 55%);
+        color: #fff;
+    }
+    .previous:hover{
+        background-color: hsl(26, 100%, 55%);
+        color: #fff;
+    }
+    .allImg{
+        display: none;
+    }
+    .price{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%; 
+    }
+    .pricePercent{
+        width: 0;
+        flex: 1;    
+        justify-content: start;
+
+    }
+    .strikeThrough{
+        flex: 1;
+        display: flex;
+        justify-content: end;
+        text-decoration: line-through;
+    }
+    .quantityCart{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .quantity{
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .addToCart{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100%;
+        gap: 40px;
+        border: none;
+        background-color: hsl(26, 100%, 55%);
+        color: white;
+    }
+    
+}
+
+
+@media screen and (max-width:375px) {
+    .navBars{
+        display: block;
+    }
+    nav{
+        display: none;
+    }
+    .quantity{
+        align-self: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .next{
+        right: 40px;
+    }
+    .previous{
+        left: 40px;
+    }
+    .next:hover{
+        background-color: hsl(26, 100%, 55%);
+        color: #fff;
+        
+    }
+    .previous:hover{
+        background-color: hsl(26, 100%, 55%);
+        color: #fff;
+        
+    }
+}

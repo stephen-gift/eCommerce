@@ -1,0 +1,31 @@
+(function (){
+  
+  
+  var allImages = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"];
+
+
+    var currentImage = 0;
+
+
+
+    var next = document.getElementById("next");
+    next.addEventListener("click", function(e) {
+      e.preventDefault();
+      currentImage++;
+      if (currentImage > allImages.length-1) {
+        currentImage = 0;
+      }
+      document.getElementById("myimage").src = allImages[currentImage];
+    })
+    
+    var prev = document.getElementById("previous");
+    prev.addEventListener("click", function(e) {
+      e.preventDefault();
+      currentImage--;
+      if (currentImage < 0) {
+        currentImage = allImages.length-1;
+      }
+      document.getElementById("myimage").src = allImages[currentImage];
+    })
+  
+})()
